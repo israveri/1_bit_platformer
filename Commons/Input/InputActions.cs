@@ -13,4 +13,10 @@ public partial class InputActions : Resource {
 
   [Export]
   public StringName Right { get; set; } = "right";
+
+  [Export]
+  public StringName Jump  { get; set; } = "jump";
+
+  [Export]
+  public StringName Shoot { get; set; } = "shoot";
 }

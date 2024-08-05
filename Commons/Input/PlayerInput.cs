@@ -2,17 +2,22 @@ using Godot;
 
 public partial class PlayerInput : Node {
 	[Export]
-	public BaseCharacter Character;
+	public Player Player;
 
 	[Export]
 	public InputActions InputActions { get; set; }
 
-	public override void _PhysicsProcess(double delta) {
-		Character.Direction = Input.GetVector(
+	public override void _Process(double delta) {
+		Player.Direction = Input.GetVector(
 			InputActions.Left,
 			InputActions.Right,
 			InputActions.Up,
 			InputActions.Down
 		);
+	}
+
+	public override void _UnhandledInput(InputEvent @event) {
+		if (@event.IsActionPressed(InputActions.Jump))
+			Player.Jump();
 	}
 }

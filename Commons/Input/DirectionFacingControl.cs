@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class FacingControl : Node2D {
+public partial class DirectionFacingControl : Node2D {
 	[Export]
 	public BaseCharacter Character {
 		get { return _character; }

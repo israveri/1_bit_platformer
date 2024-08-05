@@ -1,17 +1,15 @@
 using Godot;
 
 public partial class Player : BaseCharacter {
-	[Export(PropertyHint.Range, "0,100,1,or_greater")]
-	public int MoveSpeed { get; set; } = 50;
+	public override void _PhysicsProcess(double delta) {
+		_applyGravity(delta);
+		_handleHorizontalMovement();
+		MoveAndSlide();
+	}
 
-	public void HandleVelocity() {
+	private void _handleHorizontalMovement() {
 		var velocity = Velocity;
 		velocity.X = Direction.X * MoveSpeed;
 		Velocity = velocity;
-	}
-
-	public override void _PhysicsProcess(double delta) {
-		HandleVelocity();
-		MoveAndSlide();
 	}
 }
