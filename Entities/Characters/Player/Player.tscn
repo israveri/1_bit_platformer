@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4236y7byr1ry"]
+[gd_scene load_steps=7 format=3 uid="uid://b4236y7byr1ry"]
 
 [ext_resource type="Script" path="res://Entities/Characters/Player/Player.cs" id="1_jtx51"]
 [ext_resource type="Resource" uid="uid://cofydugfahy7t" path="res://Commons/Input/Data/InputActions.tres" id="2_eh3ev"]
 [ext_resource type="Script" path="res://Commons/Input/FacingControl.cs" id="3_il27d"]
+[ext_resource type="Script" path="res://Commons/Input/PlayerInput.cs" id="4_280kb"]
 [ext_resource type="SpriteFrames" uid="uid://1qe3hxruua8i" path="res://Entities/Characters/Player/Data/player_sprite_frames.tres" id="4_tcmqp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_06ymi"]
@@ -11,7 +12,6 @@ height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_jtx51")
-Actions = ExtResource("2_eh3ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -25,4 +25,9 @@ Character = NodePath("..")
 position = Vector2(0, -8)
 sprite_frames = ExtResource("4_tcmqp")
 animation = &"run"
-frame_progress = 0.128374
+frame_progress = 0.348207
+
+[node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("Character")]
+script = ExtResource("4_280kb")
+Character = NodePath("..")
+InputActions = ExtResource("2_eh3ev")
