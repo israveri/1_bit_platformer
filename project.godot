@@ -15,6 +15,12 @@ run/main_scene="res://Stages/World/World.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/scale_mode="integer"
+
 [dotnet]
 
 project/assembly_name="1 Bit Platformer"

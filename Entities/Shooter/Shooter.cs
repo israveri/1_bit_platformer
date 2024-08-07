@@ -8,10 +8,9 @@ public partial class Shooter : Node2D
     [Export]
     public Ammunition Ammunition;
 
-    [Export]
-    public GroupNames GroupNames;
-
+    public GroupNames GroupNames = new GroupNames();
     public Node AmmunitionNode;
+    public Vector2 DefaultShootingDirection = Vector2.Right;
 
     public override void _Ready()
     {
@@ -36,5 +35,6 @@ public partial class Shooter : Node2D
 
         bullet.Name = Ammunition.DisplayName;
         bullet.GlobalPosition = GlobalPosition;
+        bullet.Shoot(direction: DefaultShootingDirection.Rotated(GlobalRotation));
     }
 }

@@ -1,17 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4236y7byr1ry"]
+[gd_scene load_steps=12 format=3 uid="uid://b4236y7byr1ry"]
 
 [ext_resource type="Script" path="res://Entities/Characters/Player/Player.cs" id="1_jtx51"]
 [ext_resource type="Resource" uid="uid://cofydugfahy7t" path="res://Commons/Input/Data/InputActions.tres" id="2_eh3ev"]
 [ext_resource type="Script" path="res://Commons/Input/DirectionFacingControl.cs" id="2_gjs5m"]
 [ext_resource type="Script" path="res://Commons/Input/PlayerInput.cs" id="4_280kb"]
 [ext_resource type="SpriteFrames" uid="uid://1qe3hxruua8i" path="res://Entities/Characters/Player/Data/PlayerSpriteFrames.tres" id="4_tcmqp"]
+[ext_resource type="Script" path="res://Entities/Characters/Player/HandAnchor.cs" id="6_17jht"]
 [ext_resource type="Script" path="res://Entities/Shooter/Shooter.cs" id="6_mpdhd"]
 [ext_resource type="Resource" uid="uid://djec0vvda71w3" path="res://Entities/Weapons/Ammunitions/PeaProjectile/Data/PeaAmmunition.tres" id="7_ejf4e"]
-[ext_resource type="Resource" uid="uid://50h64e4q4mlt" path="res://Commons/Groups/GroupNames.tres" id="8_hcui5"]
+[ext_resource type="Texture2D" uid="uid://dhfmubljkhasu" path="res://Assets/Images/monochrome_tilemap_transparent_packed.png" id="9_knxh6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_06ymi"]
 radius = 5.0
 height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qo1"]
+atlas = ExtResource("9_knxh6")
+region = Rect2(128, 192, 16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_jtx51")
@@ -34,11 +39,20 @@ frame_progress = 0.567175
 [node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("Player", "Shooter")]
 script = ExtResource("4_280kb")
 Player = NodePath("..")
-Shooter = NodePath("../Shooter")
+Shooter = NodePath("../HandAnchor/Shooter")
 InputActions = ExtResource("2_eh3ev")
 
-[node name="Shooter" type="Node2D" parent="."]
-position = Vector2(9, -5)
+[node name="HandAnchor" type="Node2D" parent="."]
+position = Vector2(0, -5)
+script = ExtResource("6_17jht")
+
+[node name="Shooter" type="Node2D" parent="HandAnchor"]
+position = Vector2(17, 2)
 script = ExtResource("6_mpdhd")
 Ammunition = ExtResource("7_ejf4e")
-GroupNames = ExtResource("8_hcui5")
+
+[node name="Sprite2D" type="Sprite2D" parent="HandAnchor/Shooter"]
+position = Vector2(-5, 0)
+rotation = 1.57079
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_i8qo1")

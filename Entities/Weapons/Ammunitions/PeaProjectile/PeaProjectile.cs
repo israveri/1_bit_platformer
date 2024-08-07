@@ -5,10 +5,8 @@ public partial class PeaProjectile : RigidBody2D
     [Export(PropertyHint.Range, "0,300,1,or_greater")]
     public float InitialVelocity = 300;
 
-    public override void _Ready()
+    public void Shoot(Vector2 direction)
     {
-        var linearVelocity = LinearVelocity;
-        linearVelocity.X = InitialVelocity;
-        LinearVelocity = linearVelocity;
+        LinearVelocity = InitialVelocity * direction;
     }
 }
