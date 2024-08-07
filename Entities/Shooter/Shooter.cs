@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Shooter : Node2D
+public partial class Shooter : RayCast2D
 {
     [Export]
     public bool CanShoot = true;
@@ -19,7 +19,7 @@ public partial class Shooter : Node2D
 
     public bool Shoot()
     {
-        if (CanShoot)
+        if (CanShoot && !IsColliding())
         {
             _executeShoot();
             return true;
