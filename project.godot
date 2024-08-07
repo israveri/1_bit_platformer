@@ -22,8 +22,8 @@ project/assembly_name="1 Bit Platformer"
 [editor]
 
 naming/node_name_num_separator=2
-naming/default_signal_callback_name="On{NodeName}{SignalName}"
-naming/default_signal_callback_to_self_name="On{SignalName}"
+naming/default_signal_callback_name="{NodeName}{SignalName}"
+naming/default_signal_callback_to_self_name="{SignalName}"
 naming/scene_name_casing=1
 
 [input]
