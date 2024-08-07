@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://djec0vvda71w3"]
+
+[ext_resource type="Texture2D" uid="uid://dhfmubljkhasu" path="res://Assets/Images/monochrome_tilemap_transparent_packed.png" id="1_m44im"]
+[ext_resource type="PackedScene" uid="uid://df6x3yah1xnpx" path="res://Entities/Weapons/Ammunitions/PeaProjectile/PeaProjectile.tscn" id="2_vfude"]
+[ext_resource type="Script" path="res://Entities/Shooter/Ammunition.cs" id="3_2cmw2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av0vp"]
+atlas = ExtResource("1_m44im")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("3_2cmw2")
+DisplayName = &"Pea"
+Icon = SubResource("AtlasTexture_av0vp")
+Scene = ExtResource("2_vfude")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4236y7byr1ry"]
+[gd_scene load_steps=10 format=3 uid="uid://b4236y7byr1ry"]
 
 [ext_resource type="Script" path="res://Entities/Characters/Player/Player.cs" id="1_jtx51"]
 [ext_resource type="Resource" uid="uid://cofydugfahy7t" path="res://Commons/Input/Data/InputActions.tres" id="2_eh3ev"]
 [ext_resource type="Script" path="res://Commons/Input/DirectionFacingControl.cs" id="2_gjs5m"]
 [ext_resource type="Script" path="res://Commons/Input/PlayerInput.cs" id="4_280kb"]
-[ext_resource type="SpriteFrames" uid="uid://1qe3hxruua8i" path="res://Entities/Characters/Player/Data/player_sprite_frames.tres" id="4_tcmqp"]
+[ext_resource type="SpriteFrames" uid="uid://1qe3hxruua8i" path="res://Entities/Characters/Player/Data/PlayerSpriteFrames.tres" id="4_tcmqp"]
+[ext_resource type="Script" path="res://Entities/Shooter/Shooter.cs" id="6_mpdhd"]
+[ext_resource type="Resource" uid="uid://djec0vvda71w3" path="res://Entities/Weapons/Ammunitions/PeaProjectile/Data/PeaAmmunition.tres" id="7_ejf4e"]
+[ext_resource type="Resource" uid="uid://50h64e4q4mlt" path="res://Commons/Groups/GroupNames.tres" id="8_hcui5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_06ymi"]
 radius = 5.0
@@ -28,7 +31,14 @@ sprite_frames = ExtResource("4_tcmqp")
 animation = &"run"
 frame_progress = 0.567175
 
-[node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("Player")]
+[node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("Player", "Shooter")]
 script = ExtResource("4_280kb")
 Player = NodePath("..")
+Shooter = NodePath("../Shooter")
 InputActions = ExtResource("2_eh3ev")
+
+[node name="Shooter" type="Node2D" parent="."]
+position = Vector2(9, -5)
+script = ExtResource("6_mpdhd")
+Ammunition = ExtResource("7_ejf4e")
+GroupNames = ExtResource("8_hcui5")

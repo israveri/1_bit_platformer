@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cneogc8hr2a32"]
+
+[ext_resource type="PackedScene" uid="uid://b6st2e567p02r" path="res://Stages/Level 1/Level_1.tscn" id="1_f56xs"]
+
+[node name="World" type="Node2D"]
+
+[node name="Level_1" parent="." instance=ExtResource("1_f56xs")]
+
+[node name="AmmunitionsGroup" type="Node2D" parent="." groups=["Ammunitions"]]

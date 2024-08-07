@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://50h64e4q4mlt"]
+
+[ext_resource type="Script" path="res://Commons/Groups/GroupNames.cs" id="1_fhk86"]
+
+[resource]
+script = ExtResource("1_fhk86")
+AmmunitionsGroup = &"Ammunitions"

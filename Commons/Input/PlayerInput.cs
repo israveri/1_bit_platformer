@@ -6,6 +6,9 @@ public partial class PlayerInput : Node
     public Player Player;
 
     [Export]
+    public Shooter Shooter;
+
+    [Export]
     public InputActions InputActions { get; set; }
 
     public override void _Process(double delta)
@@ -22,5 +25,8 @@ public partial class PlayerInput : Node
     {
         if (@event.IsActionPressed(InputActions.Jump))
             Player.Jump();
+
+        if (@event.IsActionPressed(InputActions.Shoot))
+            Shooter.Shoot();
     }
 }

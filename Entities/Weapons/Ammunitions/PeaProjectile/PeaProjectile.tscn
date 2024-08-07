@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://df6x3yah1xnpx"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Ammunitions/PeaProjectile/PeaProjectile.cs" id="1_y2wcl"]
+[ext_resource type="SpriteFrames" uid="uid://w33ljm0s07vb" path="res://Entities/Weapons/Ammunitions/PeaProjectile/Data/PeaProjectileSpriteFrames.tres" id="2_v80pa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onvu4"]
+radius = 3.16228
+
+[node name="PeaProjectile" type="RigidBody2D"]
+gravity_scale = 0.1
+script = ExtResource("1_y2wcl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_v80pa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_onvu4")
